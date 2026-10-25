@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 20th Zulfa!</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      background-color: #fce7f0;
+      color: #333;
+      padding: 20px;
+    }
+
+    /* Styling Layar Tirai Pembuka (Overlay) */
+    #welcome-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #fce7f0, #ffb6c1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    }
+    #welcome-screen h2 {
+      color: #b83280;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      text-align: center;
+      padding: 0 20px;
+    }
+    #welcome-screen p {
+      color: #718096;
+      margin-bottom: 25px;
+      font-size: 1rem;
+    }
+    .open-btn {
+      background-color: #b83280;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(184, 50, 128, 0.4);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+    .open-btn:hover {
+      background-color: #9b2c6c;
+      transform: scale(1.05);
+    }
+
+    /* Animasi Tirai Terbuka ke Atas */
+    .slide-up {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(219, 112, 147, 0.15);
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: #b83280;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .author-meta {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #718096;
+      margin-bottom: 25px;
+    }
+    .content-text p {
+      margin-bottom: 16px;
+      text-align: justify;
+      white-space: pre-line;
+    }
+    .video-container {
+      margin: 30px 0;
+      position: relative;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .music-container {
+      text-align: center;
+      margin: 25px 0;
+      padding: 15px;
+      background: #fff0f5;
+      border-radius: 8px;
+      border: 1px dashed #db7093;
+    }
+    .music-container p {
+      font-size: 0.9rem;
+      color: #b83280;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .music-container audio {
+      width: 100%;
+      max-width: 400px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: #a0aec0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Layar Tirai Pembuka (Cover) -->
+  <div id="welcome-screen">
+    <h2>✨ Ada Pesan Spesial Buat Zulfa ✨</h2>
+    <p>Klik tombol di bawah untuk membuka halaman ucapannya ya!</p>
+    <button class="open-btn" onclick="bukaTirai()">Buka Kejutan 🤍</button>
+  </div>
+
+  <div class="container">
+    <!-- Judul Karangan -->
+    <h1>Happy 20th zulfa,atul,cece,juju,jul,jawa</h1>
+    <div class="author-meta">from rizka yg imut kiyut dan pintar juga cerdas</div>
+
+    <!-- Bagian Video MP4 (Diberi atribut muted & autoplay agar jalan bersamaan) -->
+    <div class="video-container">
+      <video id="myVideo" controls muted playsinline>
+        <source src="videoku.mp4" type="video/mp4">
+        Browser kamu tidak mendukung pemutaran video.
+      </video>
+    </div>
+
+    <!-- BAGIAN MUSIK (Durasi 1:57 s.d 3:08) -->
+    <div class="music-container">
+      <p>🎵 Lagu Spesial Buat Zulfa</p>
+      <audio id="bgm" controls loop>
+        <source src="lagu.mp3#t=117,188" type="audio/mpeg">
+        Browser kamu tidak mendukung pemutaran audio.
+      </audio>
+    </div>
+
+    <!-- Bagian Karangan Teks -->
+    <div class="content-text">
+      <p>
+        happy birthday, zulfa!! 🥳🤍 welcome to ur 20s!!
+
+        semoga di umur yang baru ini semua hal baik selalu dateng ke lo, apa pun yang lagi lo usahain semoga bisa tercapai satu-satu, urusan lo dipermudah, rezekinya dilancarkan, and always be surrounded by good people. semoga lo selalu sehat, bahagia, dan punya banyak alasan buat senyum setiap harinya. terus jul, gue harap lo bisa kurang-kurangin overthinkingnya, yaa. gue tahu lo sering mikirin banyak hal, entah itu tentang pertemanan atau hal lainnya. but please, jangan selalu mikir negatif duluan, nggak semua hal punya maksud buruk dan nggak semua omongan orang harus lo masukin ke hati. jangan bikin diri lo capek sendiri gara-gara hal yang belum tentu terjadi. u deserve to feel happy and at peace too! 🤍
+      </p>
+      <p>
+        semoga lo juga ketemu sama cowok yang bener-bener lo sayang, yang bisa sayang sama lo dengan tulus and treat u right WKWKWK 😭☝🏻
+
+        lastly, makasih udah sering bikin gue ketawa dan makasih buat semua momen yang udah kita lewatin. semoga di umur 20 ini kita masih bisa sama-sama terus, ketawa bareng, cerita apa aja, and make more memories together. semoga lo bahagia selalu, ya, jul. stay healthy and happy, love u!! 🫶🏻💗
+
+        last but not least gua bikin longtext gini di bikin gpt AOWKAOWKAW
+      </p>
+    </div>
+
+    <footer>
+      &copy; 2026 created by rizka imut
+    </footer>
+  </div>
+
+  <!-- Script untuk Membuka Tirai, Memutar Video Mute, & Musik Fade-In -->
+  <script>
+    function bukaTirai() {
+      // 1. Hilangkan layar tirai pembuka dengan animasi slide-up
+      const welcomeScreen = document.getElementById("welcome-screen");
+      welcomeScreen.classList.add("slide-up");
+
+      // 2. Putar Video secara otomatis dan silent (muted)
+      const video = document.getElementById("myVideo");
+      video.play().catch(e => console.log("Video play error:", e));
+
+      // 3. Putar Musik dengan efek fade-in
+      const audio = document.getElementById("bgm");
+      audio.volume = 0;
+      audio.play().then(() => {
+        fadeInAudio(audio);
+      }).catch(e => console.log("Audio play error:", e));
+    }
+
+    // Fungsi efek suara pelan-pelan naik (fade-in) selama 2 detik
+    function fadeInAudio(audioElement) {
+      let volume = 0;
+      let interval = 200; // setiap 0.2 detik
+      let steps = 2000 / interval; // total 2 detik
+      let increment = 1 / steps;
+
+      let fadeTimer = setInterval(function() {
+        volume += increment;
+        if (volume >= 1) {
+          volume = 1;
+          clearInterval(fadeTimer);
+        }
+        audioElement.volume = volume;
+      }, interval);
+    }
+  </script>
+
+</body>
+</html>
